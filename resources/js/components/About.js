@@ -1,11 +1,15 @@
 import React, {useState} from 'react';
-
 import Swal from 'sweetalert2'
+import {useHistory} from 'react-router-dom';
+
  
 function About() {
     const [name, setName] = useState('');
     const [title, setTitle] = useState('')
     const [isSaving, setIsSaving] = useState(false)
+      const history = useHistory();
+    
+
  
     const handleSave = () => {
         setIsSaving(true);
@@ -19,10 +23,13 @@ function About() {
                 title: 'Admin saved successfully!',
                 showConfirmButton: false,
                 timer: 1500
+             
+
             })
             setIsSaving(false);
             setName('')
             setTitle('')
+             history.push('/');
           })
           .catch(function (error) {
             Swal.fire({

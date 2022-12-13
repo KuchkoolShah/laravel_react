@@ -1,4 +1,7 @@
+import React from 'react'
 import { useEffect, useState } from "react";
+import {Link} from 'react-router-dom';
+
 const Home = () =>{
       const [items, setItems] = useState([]);
 
@@ -43,7 +46,7 @@ const Home = () =>{
                     <th>Name</th>
                    
                     <th>Tiltle</th>
-                     <th>operation</th>
+                     <th  colspan="2">operation</th>
                    
                    
                 </tr>
@@ -57,7 +60,10 @@ const Home = () =>{
  <td>{data.id}</td>
   <td>{data.name}</td>
    <td>{data.title}</td>
-   <td> <button  onClick={()=>deleteUser(data.id)}> Delete</button> </td>
+   <td>
+                        <Link to={`edit/${data.id}`} className="btn btn-success btn-sm">Edit</Link>
+                    </td>
+   <td> <button  onClick={()=>deleteUser(data.id)}  className="btn btn-success btn-sm"> Delete</button> </td>
 </tr>
     )}
                 

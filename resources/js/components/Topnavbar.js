@@ -31,35 +31,28 @@ return (
           ="navbar-nav me-auto mb-2 mb-lg-0 ">
           <li className
  ="nav-item">
-            <Link className
- ="nav-link active" aria-current="page" to="/">Home</Link>
+            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
           </li>
-          <li className
-="nav-item">
-            <Link className
- ="nav-link" to="/abouts">About</Link>
+          <li className="nav-item">
+            <Link className="nav-link" to="/abouts" >About</Link>
           </li>
-          <li className
- ="nav-item dropdown">
-            <Link className
-="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li className="nav-item dropdown">
+            <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </Link>
-            <ul className
- ="dropdown-menu">
-              <li><Link className
- ="dropdown-item" to="#">Action</Link></li>
-              <li><Link className
- ="dropdown-item" to="#">Another action</Link></li>
+            <ul className="dropdown-menu">
+              <li><Link className="dropdown-item" to="#">Action</Link></li>
+              <li><Link className="dropdown-item" to="#">Another action</Link></li>
               
-              <li><Link className
-="dropdown-item" to="#">Something else here</Link></li>
+              <li><Link className="dropdown-item" to="#">Something else here</Link></li>
             </ul>
           </li>
-          <li className
- ="nav-item">
-            <Link className
- ="nav-link" to="#">Contact</Link>
+          <li className ="nav-item">
+             <Link className="nav-link" to="/students">Student</Link>
+          </li>
+         
+           <li className ="nav-item">
+             <Link className="nav-link" to="/add-students">Add Student</Link>
           </li>
         </ul>
         <form className

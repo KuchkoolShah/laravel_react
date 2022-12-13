@@ -4,21 +4,33 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Topnavbar from './Topnavbar';
 import Home from './pages/Home';
 import About from './About';
+import ViewStudent from './pages/ViewStudent';
+import AddStudent from './pages/AddStudent';
+import EditStudent from './pages/EditStudent';
+import Edit from './pages/Edit';
+
+
 function Example() {
     return (
+       
         <div className="container">
 		
-  <Router>
-      <Topnavbar/>
-      <Switch>
-       <Route path='/'  exact component={Home} />
-        <Route path='/abouts'  exact component={About} />
-       
-      </Switch>
-    </Router>
+              <Router>
+                  <Topnavbar/>
+                              <Switch>
+                               <Route path='/'  exact component={Home} />
+                                <Route path='/abouts'   component={About} />                   
+                                <Route path="/students" component={ViewStudent} />
+                                <Route path="/edit-student/:id" component={EditStudent} />
+                                <Route path="/add-students" component={AddStudent} />
+                                
+                               
+                              </Switch>
+                </Router>
     
         
         </div>
+        
     );
 }
 
@@ -28,9 +40,4 @@ if (document.getElementById('example')) {
     ReactDOM.render(<Example />, document.getElementById('example'));
 }
 
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-  crossorigin="anonymous"
-/>
+
