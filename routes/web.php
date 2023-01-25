@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxBOOKCRUDController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\admin\AdminAuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,8 +21,20 @@ use App\Http\Controllers\HomeController;
 // });
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/' , [App\Http\Controllers\Auth\LoginController::class , 'showLoginForm']);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/' , [App\Http\Controllers\Auth\LoginController::class , 'showLoginForm']);
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+    Route::get('/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin');
+    Route::post('/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
+
+    Route::group(['middleware' => 'adminauth'], function () {
+    Route::get('/', function () {
+            return view('admin.dashboard');
+        })->name('adminDashboard');
+
+    });
+});
 
 // Route::get('ajax-book-crud', [AjaxBOOKCRUDController::class, 'index']);
 // Route::post('add-update-book', [AjaxBOOKCRUDController::class, 'store']);
